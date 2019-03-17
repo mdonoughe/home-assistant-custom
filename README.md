@@ -1,0 +1,1 @@
+These are the modifications I make for my personal instance of Home Assistant.
