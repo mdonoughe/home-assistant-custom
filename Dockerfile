@@ -1,4 +1,4 @@
-FROM homeassistant/home-assistant:0.87.0
+FROM homeassistant/home-assistant:latest
 
 ARG homeassistant_ref=caseta-registry
 ARG pylutron_caseta_ref=dev
