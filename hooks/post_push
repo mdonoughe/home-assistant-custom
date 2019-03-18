@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euxo pipefail
+
+ha_version=$(docker run --rm $IMAGE_NAME python -m homeassistant --version)
+
+docker tag $IMAGE_NAME $DOCKER_REPO:$ha_version
+docker push $DOCKER_REPO:$ha_version
+
+ha_version=$(expr "$ha_version" : '\([0-9]\+\.[0-9]\+\)\.[0-9]\+')
+if [ ! -z "$ha_version" ]; then
+    docker tag $IMAGE_NAME $DOCKER_REPO:$ha_version
+    docker push $DOCKER_REPO:$ha_version
+fi
